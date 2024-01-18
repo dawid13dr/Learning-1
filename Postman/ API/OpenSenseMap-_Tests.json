@@ -1,0 +1,248 @@
+{
+	"info": {
+		"_postman_id": "c9301e2e-b780-42cc-a273-a489d6c22cc2",
+		"name": "OpenSenseMap - Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Test - Register new",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Skrypt testowy dla żądania rejestracji\r",
+							"pm.test(\"Registration Successful\", function () {\r",
+							"    // Sprawdź, czy status odpowiedzi to 201 (Created)\r",
+							"    pm.response.to.have.status(201);\r",
+							"\r",
+							"    // Zapisz zmienne do środowiska tylko jeśli rejestracja zakończyła się sukcesem\r",
+							"    if (pm.response.json().code === \"Created\") {\r",
+							"        // Pobierz dane z odpowiedzi\r",
+							"        const responseData = pm.response.json().data.user;\r",
+							"\r",
+							"        // Spróbuj uzyskać hasło z sekcji Params\r",
+							"        const passwordFromParams = pm.request.url.query.get(\"password\");\r",
+							"\r",
+							"        // Zapisz zmienne do środowiska\r",
+							"        pm.environment.set(\"registeredUserName\", responseData.name);\r",
+							"        pm.environment.set(\"registeredUserEmail\", responseData.email);\r",
+							"        pm.environment.set(\"userToken\", pm.response.json().token);\r",
+							"        \r",
+							"        // Ustawienie hasła na podstawie wartości z Params dla klucza \"password\"\r",
+							"        pm.environment.set(\"registeredUserPassword\", passwordFromParams);\r",
+							"\r",
+							"        console.log(\"Registration successful. User details saved.\");\r",
+							"    }   \r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"id": "79265e31-6366-41c5-b363-90d76accd19d"
+					}
+				}
+			],
+			"id": "ada0028d-967d-4ff9-a45a-b7b8a768ce99",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.opensensemap.org/users/register?name=fart&email=fart@email.com&password=fart123456&language=en_US",
+					"protocol": "https",
+					"host": [
+						"api",
+						"opensensemap",
+						"org"
+					],
+					"path": [
+						"users",
+						"register"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "fart"
+						},
+						{
+							"key": "email",
+							"value": "fart@email.com"
+						},
+						{
+							"key": "password",
+							"value": "fart123456"
+						},
+						{
+							"key": "language",
+							"value": "en_US"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test - Sign in Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Get User Details Status Code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get User Details Success Message\", function () {\r",
+							"    pm.expect(pm.response.json().message).to.eql(\"Successfully signed in\");\r",
+							"});\r",
+							"\r",
+							"// Możesz przetestować inne informacje o użytkowniku, np. name, email itp.\r",
+							"pm.test(\"Get User Details - User Name is Correct\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    // Użyj pm.environment.get, aby uzyskać wartość zmiennej registeredUserName\r",
+							"    var expectedUserName = pm.environment.get(\"registeredUserName\");\r",
+							"    pm.expect(jsonData.data.user.name).to.eql(expectedUserName);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "f490e593-d62d-4f24-9cb6-a920f096fd04"
+					}
+				}
+			],
+			"id": "dc41e176-deea-467c-b49b-f3ee72bdc2b0",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.opensensemap.org/users/sign-in?email={{registeredUserEmail}}&password={{registeredUserPassword}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"opensensemap",
+						"org"
+					],
+					"path": [
+						"users",
+						"sign-in"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "{{registeredUserEmail}}"
+						},
+						{
+							"key": "password",
+							"value": "{{registeredUserPassword}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test - Delete user, all of its boxes and all of its boxes measurements",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Delete User Status Code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Delete User Success Message\", function () {\r",
+							"    pm.expect(pm.response.json().message).to.eql(\"User and all boxes of user marked for deletion. Bye Bye!\");\r",
+							"});\r",
+							"\r",
+							"// Wyczyść zmienną środowiskową z tokenem użytkownika po usunięciu\r",
+							"pm.environment.unset(\"userToken\");\r",
+							"pm.environment.unset(\"registeredUserName\");\r",
+							"pm.environment.unset(\"registeredUserEmail\");\r",
+							"pm.environment.unset(\"registeredUserPassword\");\r",
+							""
+						],
+						"type": "text/javascript",
+						"id": "cb287cda-8498-426a-a99c-2204ad78049d"
+					}
+				}
+			],
+			"id": "460b1316-6d67-466f-8e6d-2387629dfa17",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{userToken}}"
+					}
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Postman123\",\r\n    \"email\": \"Postman123@gmail.com\",\r\n    \"password\": \"Postman123\"\r\n\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.opensensemap.org/users/me?password={{registeredUserPassword}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"opensensemap",
+						"org"
+					],
+					"path": [
+						"users",
+						"me"
+					],
+					"query": [
+						{
+							"key": "password",
+							"value": "{{registeredUserPassword}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

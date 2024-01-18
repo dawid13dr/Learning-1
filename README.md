@@ -6,7 +6,34 @@ My interpersonal skills are crucial in teamwork. As someone open to constructive
 ## Commitment to Development
 I am ready to continue developing my skills by participating in training, attending industry conferences, and experimenting with new testing tools and methods. My goal is to continually enhance my qualifications to become an increasingly valuable member of the team.
 ## Learned Programs
-### Defect Tracking Tools
-In the context of defect tracking, I've worked with:
-#### Jira: 
-Acquired proficiency in using Jira for efficient bug tracking, workflow management, and team collaboration.
+### Jira
+### SQL
+### Postman
+### Github
+
+## Tech skills
+  - Software testing
+  - Creating test cases
+  - Reporting bugs
+
+## My Test Documentation
+
+* Bug Reports
+* Test Cases
+
+## My Projects
+
+### VerfiQA App
+* Functional Testing
+* Acceptance Testing
+
+## Books read
+  - R.Smilgin - Zawód tester
+
+
+## Blogs read
+
+* [testerzy.pl](http://testerzy.pl)
+* [testerka.pl](http://testerka.pl)
+
+

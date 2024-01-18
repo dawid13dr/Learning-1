@@ -5,7 +5,7 @@ I have a solid understanding of the SQL language, enabling me not only to compre
 The course I used:
 
 
-SQL Tutorial - Full Database Course for Beginners (https://www.youtube.com/watch?v=HXV3zeQKqGY)
+[SQL Tutorial - Full Database Course for Beginners](https://www.youtube.com/watch?v=HXV3zeQKqGY)
 
 Scope:
 

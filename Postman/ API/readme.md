@@ -5,3 +5,4 @@ Getting to know the user interface,
 Basic functionalities of the program - rules for creating workspaces, collections and requests
 GET, PUT, POST, PATCH, DELETE requests,
 Basics of creating automated tests
+

@@ -1,0 +1,21 @@
+{
+	"info": {
+		"_postman_id": "7669c68f-c1a7-43d2-8ed6-fa1087c624fa",
+		"name": "Interpolation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": ".Get a Inverse Distance Weighting Interpolation as FeatureCollection",
+			"id": "84770591-ef28-4d6b-91c1-95e609a351dc",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

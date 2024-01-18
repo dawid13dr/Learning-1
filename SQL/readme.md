@@ -24,7 +24,7 @@ Scope:
 - #### Data Updating:
   Understanding how to update existing data in the database.
 - #### Data Deletion:
-- Deleting data from the database using DELETE statements.
+  Deleting data from the database using DELETE statements.
 
 
 Exercise Websites:

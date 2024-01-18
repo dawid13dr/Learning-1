@@ -29,6 +29,6 @@ Scope:
 
 Exercise Websites:
 
-(https://sqlbolt.com/)  
+[BOLT](https://sqlbolt.com/)  
 
-(https://www.sql-easy.com/) 
+[SQL-EASY](https://www.sql-easy.com/) 

@@ -6,6 +6,11 @@
 	},
 	"item": [
 		{
+			"name": "New Folder",
+			"item": [],
+			"id": "1f904081-ed95-4f7a-9912-87a67e5c6294"
+		},
+		{
 			"name": "Register new",
 			"id": "e3a4875f-44c6-40c9-be87-a3ba2c2fb544",
 			"protocolProfileBehavior": {

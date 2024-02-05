@@ -1,10 +1,10 @@
 # Portfolio
 ## About me
-My name is Justyna Gąsior. I became intrested in software testing. My interests in software testing include exploring functionality, checking compatibility, and analyzing performance. As a junior tester, I am seeking opportunities to develop my skills in a dynamic IT environment.
+My name is Dawid Ryś. My fascination with IT is an interest in the possibilities offered by modern technology. I plan to develop my skills in this field and be a part of it dynamic world of technology
 ## Communication and Teamwork
-My interpersonal skills are crucial in teamwork. As someone open to constructive criticism, I can effectively communicate with various team members, contributing to efficient collaboration and solving project challenges.
+I have the ability to convey information clearly and listen effectively, which allows me to understand the needs and perspectives of other people. I am an active participant in teamwork, I can cooperate with other group members, plan activities and achieve common goals. Thanks to my communication skills and teamwork, I can contribute effectively to achieving goals.
 ## Commitment to Development
-I am ready to continue developing my skills by participating in training, attending industry conferences, and experimenting with new testing tools and methods. My goal is to continually enhance my qualifications to become an increasingly valuable member of the team.
+I have the ability to constantly learn and improve in various areas. In teamwork, I am actively involved in searching for new ideas and solutions that can contribute to achieving better results. I am ready to take on challenges and learn new ways of doing things to constantly develop my skills and competences.
 ## Learned Programs
 ### Jira
 ### SQL
@@ -15,6 +15,7 @@ I am ready to continue developing my skills by participating in training, attend
   - Software testing
   - Creating test cases
   - Reporting bugs
+  - SCRUM
 
 ## My Test Documentation
 
@@ -30,10 +31,10 @@ I am ready to continue developing my skills by participating in training, attend
 ## Books read
   - R.Smilgin - Zawód tester
 
+## Channels watched
+* https://www.youtube.com/@RafalPodraza
 
-## Blogs read
 
-* [testerzy.pl](http://testerzy.pl)
-* [testerka.pl](http://testerka.pl)
+
 
 
